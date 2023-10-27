@@ -15,6 +15,16 @@ use Illuminate\Http\Request;
 |
 */
 /*
+     //  chapitre L'orem   
+    //  communiquer avec une base  de donnee avec laravel  
+    // l'orem c'st le demunitif de Object Relationnel Mapping  
+    // ce  sont des classes qui vont  permettre d'interagir avec les donnee en BD qui vont permettre  de  les representent  sous forme d'objet 
+// a la place de creer  la table et creer les infos d'interieur  dans la ravel on a : 
+// - on va utiliser le systeme  de migration 
+// creer une migration qui va permettre de rajouter les infos  dans notre BD (nomme notre migration)
+// php artisan make:migration create_admins_table 
+
+
 on va creer un nouvelle admin  on intialise notre admin 
 on va affexter les propieter de cet objet (admin)
 sauvgarder les donner using methode save dans notre BD 
@@ -26,7 +36,9 @@ le return de cette methode est collection alors collection c'est quelque chose q
 first () methode sur  les collection de laravel qui fais le retourne de 1er element 
  using find () methode recupurer un admin specifique en donne l'id de ce admin 
  findorfail methode  sa va etre pratique si vous ne  voulez pas executer le reste de code s'il n'a pas trouve dans l'enregistrement 
- querybuilder va permettre de concevoir des requetes des condition des join 
+ querybuilder va permettre de concevoir des requetes des condition des join  le respnsable de convert  le code a une requete sql valable quel que soit le systeme de GBD que ont utilisent passer de mysql a sqllite  plus facile 
+a la place  d'une  requete sql vous pouvez  utilise the code pour recuperer specifique elemnt
+recuperer les element superier a 0  
 */
 
 // {"title":"yasmine","slug":"mon int","content":"le admin de cette interface est yasminele admin de cette interface est yasmine",
@@ -50,11 +62,13 @@ Route::get('/', function () {
                       // rucuperer les donner 
                     //    return \App\Models\Admin::all(['title','id', 'content']) ;
                             //    $posts = \App\Models\Admin::all(['title','id', 'content']) ;
-                                 $posts = \App\Models\Admin::paginate(2 ,['id', 'title']) ;
+                                //  $posts = \App\Models\Admin::paginate(2 ,['id', 'title']) ;
+                                 $posts = \App\Models\Admin::where('id' , '>' , 1)->limit(1)->get();
+
                             //  dd($posts[0] ->title ) ;
                             // dd($posts -> first());
-                            // dd($posts) ;
-                              return ($posts) ;
+                            dd($posts) ;
+                            //   return ($posts) ;
                     return [
                         "link" => \route('blog.show',['slug' => 'article' ,'id'=> 16]),
     
@@ -96,11 +110,4 @@ Route::get('/', function () {
 
 
 
-        //  chapitre L'orem   
-    //  communiquer avec une base  de donnee avec laravel  
-    // l'orem c'st le demunitif de Object Relationnel Mapping  
-    // ce  sont des classes qui vont  permettre d'interagir avec les donnee en BD qui vont permettre  de  les representent  sous forme d'objet 
-// a la place de creer  la table et creer les infos d'interieur  dans la ravel on a : 
-// - on va utiliser le systeme  de migration 
-// creer une migration qui va permettre de rajouter les infos  dans notre BD (nomme notre migration)
-// php artisan make:migration create_admins_table 
+   
