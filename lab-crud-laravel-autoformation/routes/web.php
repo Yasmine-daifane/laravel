@@ -25,4 +25,4 @@ Route::get('/', function () {
 // a la place de creer  la table et creer les infos d'interieur  dans la ravel on a : 
 // - on va utiliser le systeme  de migration 
 // creer une migration qui va permettre de rajouter les infos  dans notre BD (nomme notre migration)
-// php artisan make:migration create_admins_table
+// php artisan make:migration create_admins_table 
