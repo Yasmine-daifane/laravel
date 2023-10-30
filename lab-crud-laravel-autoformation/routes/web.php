@@ -39,6 +39,11 @@ first () methode sur  les collection de laravel qui fais le retourne de 1er elem
  querybuilder va permettre de concevoir des requetes des condition des join  le respnsable de convert  le code a une requete sql valable quel que soit le systeme de GBD que ont utilisent passer de mysql a sqllite  plus facile 
 a la place  d'une  requete sql vous pouvez  utilise the code pour recuperer specifique elemnt
 recuperer les element superier a 0  
+les methodes Raccourcis  pour  la creation et la mis a jour   va prendre un tableau avec les differentes champs 
+il ya une securite dans laravelle  lorsqu'on essai de creer un objet apartir d'un tableau il n'autorise pas il faut preciser dans le modele post
+
+update lors d'un query builder  mis a jour  update () de plusieur element or delete () 
+
 */
 
 // {"title":"yasmine","slug":"mon int","content":"le admin de cette interface est yasminele admin de cette interface est yasmine",
@@ -63,10 +68,30 @@ Route::get('/', function () {
                     //    return \App\Models\Admin::all(['title','id', 'content']) ;
                             //    $posts = \App\Models\Admin::all(['title','id', 'content']) ;
                                 //  $posts = \App\Models\Admin::paginate(2 ,['id', 'title']) ;
-                                 $posts = \App\Models\Admin::where('id' , '>' , 1)->limit(1)->get();
+                                //  $posts = \App\Models\Admin::where('id' , '>' , 1)->limit(1)->get();
 
-                            //  dd($posts[0] ->title ) ;
+                        //    $posts = \App\Models\Admin::find(2) ;
+                        //    modifier title 
+                        //    $posts-> title = 'New title';
+                        //    methode classique delete ,save 
+                        //    $posts-> delete() ;
+                            //  dd($posts[0] ->title );
                             // dd($posts -> first());
+                            // $posts = \App\Models\Admin::Create([
+                            //     'title'=> 'mon nouveau' ,
+                            //     'slug'=> 'neauveau ' ,
+                            //     'content' => 'neauveau contenu ' 
+
+                            // ]) ;
+
+
+                          $posts = \App\Models\Admin::where( 'id' ,'>',0)->update([
+                            'title' => 'mon',
+                           'content' => 'neauveau contenu ' 
+
+                          ]) ;
+                  
+
                             dd($posts) ;
                             //   return ($posts) ;
                     return [
