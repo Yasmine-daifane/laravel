@@ -36,13 +36,15 @@ le return de cette methode est collection alors collection c'est quelque chose q
 first () methode sur  les collection de laravel qui fais le retourne de 1er element 
  using find () methode recupurer un admin specifique en donne l'id de ce admin 
  findorfail methode  sa va etre pratique si vous ne  voulez pas executer le reste de code s'il n'a pas trouve dans l'enregistrement 
- querybuilder va permettre de concevoir des requetes des condition des join  le respnsable de convert  le code a une requete sql valable quel que soit le systeme de GBD que ont utilisent passer de mysql a sqllite  plus facile 
+ querybuilder where  va permettre de concevoir des requetes des condition des join  le respnsable de convert  le code a une requete sql valable quel que soit le systeme de GBD que ont utilisent passer de mysql a sqllite  plus facile 
 a la place  d'une  requete sql vous pouvez  utilise the code pour recuperer specifique elemnt
 recuperer les element superier a 0  
-les methodes Raccourcis  pour  la creation et la mis a jour   va prendre un tableau avec les differentes champs 
+les methodes Raccourcis  create/update/delete  pour  la creation et la mis a jour   va prendre un tableau avec les differentes champs 
 il ya une securite dans laravelle  lorsqu'on essai de creer un objet apartir d'un tableau il n'autorise pas il faut preciser dans le modele post
 
 update lors d'un query builder  mis a jour  update () de plusieur element or delete () 
+
+
 
 */
 
