@@ -85,8 +85,6 @@ Route::get('/', function () {
                             //     'content' => 'neauveau contenu ' 
 
                             // ]) ;
-
-
                           $posts = \App\Models\Admin::where( 'id' ,'>',0)->update([
                             'title' => 'mon',
                            'content' => 'neauveau contenu ' 
