@@ -1,6 +1,8 @@
 <?php
 
-
+use App\Http\Controllers\BlogController;
+use App\Models\Admin;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request; 
 
@@ -14,6 +16,9 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// les controlleur sont une manier d'organiser le code de regrouper les methode  qui ont un trai a la meme logique
+// deux partie de mvc partie modele qui permet de recuperer les informations et d'interragire avec la BD sous formes d'objet
+// controller  : Nous utilisons un contrôleur pour définir une classe qui inclut des actions (fonctions) contenant la logique pour récupérer des données depuis le modèle et les transmettre à la vue
 
 
 Route::get('/', function () {
@@ -21,39 +26,24 @@ Route::get('/', function () {
 });
 
 
-            Route::prefix('/blog')->name('blog.')->group(function()  {
-                Route::get('/' ,function (Request $request) {
-                    
-                       return \App\Models\Admin::paginate(25) ;
+            Route::prefix('/blog')->name('blog.')->controller(BlogController::class)->group(function()  {
+              
                       
-                    return [
-                        "link" => \route('blog.show',['slug' => 'article' ,'id'=> 16]),
-    
-                    ];
+               Route::get('/' ,'index')->name ('index');
                    
-                })->name('index');
+           
              
-                Route::get('/{slug}/{id}', function (string $slug ,string $id, Request $request ) {
-                 
-    
-                    return [
-                      "slug" => $slug ,
-                      'id' => $id ,
-                      'name'  =>$request ->input ('name'),
-                
-    
-                    ];
-
-                })->where([
+                Route::get('/{slug}/{id}', 'Show')->where([
                  'id' => '[0-9]+',
-                 'slug' => '[a-z0-9\-]+'
+                 'slug' => '[a-z0-9\- ]+'
     
                 ])->name('show');
         
          }); 
+
+       
           
     
-
 
 
 
