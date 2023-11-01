@@ -3,31 +3,18 @@
 {{--  des recourcis @foreach($variable as $key => $value) @endforeach  --}}
 {{--  methode magique links() permet de generer des liens --}}
 @extends('base') 
-@section('title', 'hi its me')
-
-
+@section('title', $post->title)
     @section('content')
-    <h1>mon blog is here</h1>
-  
-        
-  
-
-
- @dump($posts)
-
- @foreach($posts as $post )
     <article >
-        <h2> {{ $post->title }}</h2>
+        <h1> {{ $post->title }}</h1>
         <p>
             {{ $post->content }}
         </p>
-        <p>  
-            <a href="{{route ('blog.show',['slug'=>$post ->slug ,'id'=>$post->id]) }}" class="btn btn-primary">lire la suite </a>
-        </p>
+      
     </article>
- @endforeach
 
-  {{$posts->links()}}
+
+
  
     @endsection()
 
