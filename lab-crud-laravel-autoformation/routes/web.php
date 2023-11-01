@@ -16,9 +16,8 @@ use Illuminate\Http\Request;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// les controlleur sont une manier d'organiser le code de regrouper les methode  qui ont un trai a la meme logique
-// deux partie de mvc partie modele qui permet de recuperer les informations et d'interragire avec la BD sous formes d'objet
-// controller  : Nous utilisons un contrôleur pour définir une classe qui inclut des actions (fonctions) contenant la logique pour récupérer des données depuis le modèle et les transmettre à la vue
+//  le pricipe des vues dans laravel ,laravel dispose un moteur de template qui va nous permettre de generer des vues html ou autre format 
+
 
 
 Route::get('/', function () {

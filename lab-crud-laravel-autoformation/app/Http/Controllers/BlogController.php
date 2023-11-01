@@ -4,15 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
+
+
 class BlogController extends Controller
 {
-    public function index ():Paginator{
+    public function index():View {
 
-        return Admin::paginate(25) ;
+        $post= Admin::paginate(25) ;
+        // conventio
+        return view('blog.index') ;
     }
+
  
     public function show(string $slug ,string $id):RedirectResponse | Admin {
         $post= Admin::findOrFail($id);
