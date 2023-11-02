@@ -27,8 +27,10 @@
           <a class="navbar-brand" href="/">Navbar</a>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {{--  classe dynamique on peut utiliser la directive @class  --}}
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route ('blog.index')}}">Blog</a>
+                {{--  <a class="nav-link   @if (request()->route() -> getName() === 'blog.index') active @endif" aria-current="page" href="{{route ('blog.index')}}">Blog</a>  --}}
+                <a @class(['nav-link', 'active'=> request()-> route()->getName() == 'blog.index']) aria-current="page" href="{{ route('blog.index')}}">Blog </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
