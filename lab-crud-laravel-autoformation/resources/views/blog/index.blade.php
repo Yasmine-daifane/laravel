@@ -7,7 +7,7 @@
 
 
     @section('content')
-    <h1>mon blog is here</h1>
+    <h1>mon blog y here</h1>
   
         
   
