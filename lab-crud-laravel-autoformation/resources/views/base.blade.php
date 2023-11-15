@@ -11,7 +11,7 @@
 
     <style>
         @layer demo {
-          button {
+          button {$
             all: unset;
           }
         }
