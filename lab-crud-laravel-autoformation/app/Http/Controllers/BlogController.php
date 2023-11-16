@@ -16,9 +16,10 @@ class BlogController extends Controller
 
 
       $validator =   Validator::make([
-            'title' =>''
+            'title' =>'yaaaaaasmiiiiiiinehhh'
+            
         ], [
-             'title' => 'required|min:8|max:10'
+             'title' => 'required|min:8'
         ]);
         dd($validator -> fails());
        
