@@ -15,11 +15,12 @@ class BlogController extends Controller
     public function index():View {
 
 
-        Validator::make([
+      $validator =   Validator::make([
             'title' =>''
         ], [
-             'title' => 
-        ])
+             'title' => 'required|min:8|max:10'
+        ]);
+        dd($validator -> fails());
        
         return View('blog.index' ,[
       
