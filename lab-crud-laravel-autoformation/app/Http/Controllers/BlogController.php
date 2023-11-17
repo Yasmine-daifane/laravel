@@ -16,12 +16,16 @@ class BlogController extends Controller
 
 
       $validator =   Validator::make([
-            'title' =>'yaaaaaasmiiiiiiinehhh'
+            'title' =>'yahhhhhh'
             
         ], [
              'title' => 'required|min:8'
         ]);
-        dd($validator -> fails());
+        // dd($validator -> fails());
+        // dd($validator -> errors());
+        dd($validator ->validate
+        ());
+
        
         return View('blog.index' ,[
       
@@ -37,9 +41,9 @@ class BlogController extends Controller
             return to_route('blog.show', ['slug' => $post->slug, 'id' => $post->id]);
             // dd($test);
         }
-        
+    
     // return $post;
-    return view('blog.show' ,[
+return view('blog.show' ,[
         'post'=> $post
 
     ]);
