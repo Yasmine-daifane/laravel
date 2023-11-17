@@ -8,3 +8,4 @@
 
 - The fails() method returns a boolean value. It is true if the validation rule fails, indicating that the validation did not pass, and it is false if the validation rule succeeds
 -  we provided the value for 'title' as 'yaaaaaasmiiiiiiinehhh' which has more than 8 characters. Therefore, the validation should pass, and fails() should return false . 
+-  php artisan make:request BlogFilterRequest
