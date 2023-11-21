@@ -18,3 +18,7 @@
 -  In the file 'BlogFilterRequest,' there are two defined functionalities: the 'authorize' method, which determines whether the user has the right to access the request, and another method, 'Rules().' This 'Rules()' method returns an array used to define validation rules. These rules help ensure that the information within the request, whether in the body or as parameters in the URL, aligns correctly with the criteria specified in the 'Rules()' method. This validation ensures that the defined rules are followed accurately
 - `dd($request->validated());` va fournir les données qui ont été validées en fonction de ce qui a été saisi dans l'URL.
 - The 'slug' must correspond to a regular expression, so there is a validation rule defined using Regex: `'slug' => ['required', 'regex:/^[a-z0-9\-]+$/']`
+- `http://127.0.0.1:8000/blog?slug=mon&title=mon%20complex` we can add complex if we have a systeme that 
+- Prepare the data before validation" is achieved using prepareForValidation() method.on va le dir si on a un titre et ont a pas de slug il faudrait que tu generer un slug a la  volée using merge methode 
+- merge ()
+

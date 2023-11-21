@@ -31,4 +31,10 @@ class BlogFilterRequest extends FormRequest
            
         ];
     }
+
+    protected function prepareForValidation()
+    {
+      
+        // 
+    } 
 }
