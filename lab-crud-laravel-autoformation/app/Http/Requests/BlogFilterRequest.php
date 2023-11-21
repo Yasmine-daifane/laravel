@@ -25,8 +25,10 @@ class BlogFilterRequest extends FormRequest
         return [
        
                 //  'title' => 'required|min:8'
-                'title' => ['required']
-          
+                'title' => ['required'],
+             
+                'slug' => ['required', 'regex:/^[a-z0-9\-]+$/']
+           
         ];
     }
 }

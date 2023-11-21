@@ -17,4 +17,5 @@
   
 -  In the file 'BlogFilterRequest,' there are two defined functionalities: the 'authorize' method, which determines whether the user has the right to access the request, and another method, 'Rules().' This 'Rules()' method returns an array used to define validation rules. These rules help ensure that the information within the request, whether in the body or as parameters in the URL, aligns correctly with the criteria specified in the 'Rules()' method. This validation ensures that the defined rules are followed accurately
 - `dd($request->validated());` va fournir les données qui ont été validées en fonction de ce qui a été saisi dans l'URL.
+- le slug il faut correspand a une expression regulier donc on a une regle de validation Regex  
   
