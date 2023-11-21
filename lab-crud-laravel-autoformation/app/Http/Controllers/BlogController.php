@@ -8,23 +8,25 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View as ViewView;
 
 class BlogController extends Controller
 {
-    public function index():View {
+    public function index(BlogFilterRequest $):View {
 
 
-      $validator =   Validator::make([
-            'title' =>'yahhhhhh'
+    //   $validator =   Validator::make([
+    //         'title' =>'yahhhhhh'
             
-        ], [
-             'title' => 'required|min:8'
-        ]);
+        // ], [
+            //  'title' => 'required|min:8'
+            // 'title' => [Rule::unique('admins')->ignore(2)]
+        // ]);
         // dd($validator -> fails());
         // dd($validator -> errors());
-        dd($validator ->validate
-        ());
+        // dd($validator ->validate
+        // ());
 
        
         return View('blog.index' ,[

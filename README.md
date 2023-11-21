@@ -4,8 +4,15 @@
  
 - Let's use a validator class in Laravel
 
-- The make() method takes two parameters. The first parameter is an associative array containing the data, where each key represents the name of a property. The second parameter is also an associative array, where each key corresponds to the property name we want to validate, and it contains the validation rules for that property
+- The make() method takes two parameters. The first parameter is an associative array containing the data, where each key represents the name of a property. The second parameter is also an associative array, where each key corresponds to the property name we want to validate, and it contains the validation rules (concraint suplimentaire) for that property
 
 - The fails() method returns a boolean value. It is true if the validation rule fails, indicating that the validation did not pass, and it is false if the validation rule succeeds
 -  we provided the value for 'title' as 'yaaaaaasmiiiiiiinehhh' which has more than 8 characters. Therefore, the validation should pass, and fails() should return false . 
--  php artisan make:request BlogFilterRequest
+
+- The errors() function will return a list of error messages associated with our issue.
+-The validated() method, when it fails, will throw an exception. Laravel, by default, exhibits a behavior of redirecting to the previous page. If there is no previous page, it attempts to keep redirecting in a loop on the same page. Additionally, it enables the framework to handle errors if necessary.
+- The approach of the method to assign rules is either a string or an array. It can be a string like `'character string'` or an array like `['required', 'min:8']`.
+- we implement advanced validation rules, including complex rules defined using a specific class. One such example is the use of the `Rule` class to define a unique rule for the 'title' attribute, ignoring a specific ID:`'title' => [Rule::unique('admins')->ignore(2)]`
+- In Laravel, we have the ability to define validation rules outside controllers in a dedicated class and create custom queries. To achieve this, we can use the following command : php artisan make:request BlogFilterRequest
+-  dans ce fichier BlogFilterRequest  il definit deux chose : methode autorize qui permet de specifier si l'utilisateur a le droit non d'acceder a la requette  , et on a une autre methode Rules() va renvoyer un tableau qui va permettre de difinir les regles de validation 
+  

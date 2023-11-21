@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Unique;
 
 class BlogFilterRequest extends FormRequest
 {
@@ -22,7 +23,10 @@ class BlogFilterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+       
+                //  'title' => 'required|min:8'
+                'title' => ['required|min:4']
+          
         ];
     }
 }
