@@ -14,5 +14,7 @@
 - The approach of the method to assign rules is either a string or an array. It can be a string like `'character string'` or an array like `['required', 'min:8']`.
 - we implement advanced validation rules, including complex rules defined using a specific class. One such example is the use of the `Rule` class to define a unique rule for the 'title' attribute, ignoring a specific ID:`'title' => [Rule::unique('admins')->ignore(2)]`
 - In Laravel, we have the ability to define validation rules outside controllers in a dedicated class and create custom queries. To achieve this, we can use the following command : php artisan make:request BlogFilterRequest
--  dans ce fichier BlogFilterRequest  il definit deux chose : methode autorize qui permet de specifier si l'utilisateur a le droit non d'acceder a la requette  , et on a une autre methode Rules() va renvoyer un tableau qui va permettre de difinir les regles de validation 
+  
+-  In the file 'BlogFilterRequest,' there are two defined functionalities: the 'authorize' method, which determines whether the user has the right to access the request, and another method, 'Rules().' This 'Rules()' method returns an array used to define validation rules. These rules help ensure that the information within the request, whether in the body or as parameters in the URL, aligns correctly with the criteria specified in the 'Rules()' method. This validation ensures that the defined rules are followed accurately
+- `dd($request->validated());` va fournir les données qui ont été validées en fonction de ce qui a été saisi dans l'URL.
   

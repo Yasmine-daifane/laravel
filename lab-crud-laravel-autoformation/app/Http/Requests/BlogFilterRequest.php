@@ -12,7 +12,7 @@ class BlogFilterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class BlogFilterRequest extends FormRequest
         return [
        
                 //  'title' => 'required|min:8'
-                'title' => ['required|min:4']
+                'title' => ['required']
           
         ];
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BlogFilterRequest;
 use App\Models\Admin;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Contracts\View\View;
@@ -13,8 +14,12 @@ use Illuminate\View\View as ViewView;
 
 class BlogController extends Controller
 {
-    public function index(BlogFilterRequest $):View {
-
+    public function index(BlogFilterRequest $request ):View {
+        dd($request->validated()) ;
+        return View('blog.index' ,[
+      
+            'posts' =>Admin::paginate(2) 
+        ]);
 
     //   $validator =   Validator::make([
     //         'title' =>'yahhhhhh'
@@ -29,10 +34,7 @@ class BlogController extends Controller
         // ());
 
        
-        return View('blog.index' ,[
-      
-            'posts' =>Admin::paginate(2) 
-        ]);
+    
     }
     // public function show(string $slug ,string $id):RedirectResponse | Admin 
  
