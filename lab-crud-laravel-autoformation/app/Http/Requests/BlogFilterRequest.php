@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Unique;
-
+use illuminate\Support\Str ;
 class BlogFilterRequest extends FormRequest
 {
     /**
@@ -35,6 +35,10 @@ class BlogFilterRequest extends FormRequest
     protected function prepareForValidation()
     {
       
-        // 
+    $this->merge ([
+
+        // 'slug' => 'yasmine' 
+        'slug'=> $this->input('slug') ?: Str::slug($this->input('title'))
+    ]);
     } 
 }

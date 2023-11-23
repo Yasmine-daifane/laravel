@@ -20,5 +20,7 @@
 - The 'slug' must correspond to a regular expression, so there is a validation rule defined using Regex: `'slug' => ['required', 'regex:/^[a-z0-9\-]+$/']`
 - `http://127.0.0.1:8000/blog?slug=mon&title=mon%20complex` we can add complex if we have a systeme that 
 - Prepare the data before validation" is achieved using prepareForValidation() method.on va le dir si on a un titre et ont a pas de slug il faudrait que tu generer un slug a la  volée using merge methode 
-- merge ()
+- merge ()elle atteint un tableau il va permettre de rajouter des information dans notre requette 
 
+- The str:slug function generates a user-friendly identifier immediately from a given text
+- helper string il aid a fair tous les manipulation sur les chaines de caractere 

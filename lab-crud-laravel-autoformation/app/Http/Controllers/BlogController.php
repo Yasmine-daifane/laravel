@@ -16,6 +16,7 @@ class BlogController extends Controller
 {
     public function index(BlogFilterRequest $request ):View {
         dd($request->validated()) ;
+        
         // return View('blog.index' ,[
       
         //     'posts' =>Admin::paginate(2) 
